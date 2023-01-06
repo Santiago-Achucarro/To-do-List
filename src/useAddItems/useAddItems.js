@@ -1,7 +1,6 @@
-const useAddItems = (valor, tarea) => {
+const useAddItems = (valor) => {
   if (valor.length > 0) {
-    localStorage.setItem(tarea, valor);
-    return true;
+    localStorage.setItem("tareas", JSON.stringify(valor));
   } else {
     return false;
   }

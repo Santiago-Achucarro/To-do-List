@@ -5,28 +5,21 @@ import { Items } from "../Items";
 import { useAddItems } from "../../useAddItems/useAddItems";
 
 export const Main = () => {
-  const [tarea, setTarea] = useState(0);
-  const valor = JSON.parse(localStorage.getItem(tarea));
-  const [toDo, setToDo] = useState(valor);
-
+  const data = JSON.parse(localStorage.getItem("tareas"));
+  const [toDo, setToDo] = useState(data);
+  const [valor, setValor] = useState(data ? data : []);
   const handleAddToDo = (searchInput) => {
-    if (searchInput.length == 0) {
-      const resp = useAddItems(searchInput, tarea);
-      resp ? setTarea((prev) => prev + 1) : setTarea((prev) => prev);
-    }
-  };
-
-  const getTarea = () => {
-    if (tarea) {
-      setToDo(valor);
-    } else {
-      setToDo(false);
+    if (searchInput.length > 0) {
+      setValor((prev) => [...prev, searchInput]);
+      useAddItems(valor);
     }
   };
 
   useEffect(() => {
-    getTarea();
-  });
+    if (data) {
+      setToDo((prev) => data);
+    }
+  }, []);
 
   return (
     <Flex

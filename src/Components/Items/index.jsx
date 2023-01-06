@@ -1,20 +1,24 @@
 import { Box } from "@chakra-ui/react";
-import react from "react";
 
 const Items = ({ toDo }) => {
+  console.log(toDo);
   return (
-    <Box
-      backgroundColor="white"
-      width="90%"
-      height="36"
-      borderRadius="10"
-      color="black"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-    >
-      {toDo}
-    </Box>
+    toDo &&
+    toDo.map((item, index) => (
+      <Box
+        backgroundColor="white"
+        width="90%"
+        height="36"
+        borderRadius="10"
+        color="black"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        key={index}
+      >
+        {item}
+      </Box>
+    ))
   );
 };
 
