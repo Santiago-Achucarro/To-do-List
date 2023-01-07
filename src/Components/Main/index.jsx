@@ -14,8 +14,8 @@ export const Main = () => {
       alignItems="center"
     >
       <Box
-        width={{ base: "80vw", sm: "40vw", lg: "40vw", xl: "30vw" }}
-        height="70vh"
+        width={{ base: "80vw", sm: "50vw", lg: "50vw", xl: "30vw" }}
+        height={{base:"70vh", lg:"50vh", xl:"70vh"}}
         boxShadow="dark-lg"
         color="white"
         borderRadius="10"
@@ -32,6 +32,7 @@ export const Main = () => {
         <Box
           width="100%"
           height="70%"
+          mt="5"
           color="red"
           overflowY="scroll"
           sx={{
@@ -40,7 +41,7 @@ export const Main = () => {
             },
           }}
         >
-          <Flex align="center" mt="2" flexDirection="column" gap="2">
+          <Flex align="center"  flexDirection="column" gap="2">
             <Items send={send} setSend={setSend} />
           </Flex>
         </Box>
