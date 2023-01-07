@@ -27,9 +27,16 @@ const Items = ({ send, setSend }) => {
 
   const getDay = (item) => {
     const index = item.indexOf("(");
-    const day = item.slice(index);
+    const otherIndex = item.indexOf(")");
+    const day = item.slice(index, otherIndex + 1);
     const itemDay = day.replace("(", "").replace(")", "");
     return itemDay;
+  };
+
+  const getHours = (item) => {
+    const index = item.indexOf(")");
+    const hours = item.slice(index + 1);
+    return hours;
   };
 
   const getOnlyTask = (item) => {
@@ -59,9 +66,12 @@ const Items = ({ send, setSend }) => {
         onClick={() => removeTask(index)}
       >
         <Box display="flex" ml="3" fontWeight="thin" fontStyle="italic">
-          {getDay(item)}
+          <Box width="50%">{getDay(item)}</Box>
+          <Box width="50%" display={"flex"} justifyContent="end" mr="3">
+            {getHours(item)}
+          </Box>
         </Box>
-        <Box display="flex" justifyContent={"center"} fontWeight="medium">
+        <Box display="flex" justifyContent={"center"} fontWeight="medium" textAlign="center"fontSize="15">
           {getOnlyTask(item)}
         </Box>
       </Box>

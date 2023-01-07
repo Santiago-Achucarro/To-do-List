@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
-import react, { useEffect, useState } from "react";
+import { useState } from "react";
 import { AddItem } from "../AddItem";
 import { Items } from "../Items";
 
@@ -16,6 +16,7 @@ export const Main = () => {
       <Box
         width={{ base: "80vw", sm: "40vw", lg: "40vw", xl: "30vw" }}
         height="70vh"
+        boxShadow="dark-lg"
         color="white"
         borderRadius="10"
         backgroundColor="#1A202C"
